@@ -1,16 +1,16 @@
 <mat-card class="example-card">
-  <mat-card-subtitle>Urna eletrônica</mat-card-subtitle>
-  <mat-card-title>Voto para presidente</mat-card-title>
-  {{presidente}} oi
-  {{cpf}}
+  <div style="padding: 20px">
+    <mat-card-subtitle>Urna eletrônica</mat-card-subtitle>
+    <mat-card-title>Voto para presidente</mat-card-title>
+  </div>
   <mat-card-content>
-    <form class="example-form">
-      <mat-form-field class="example-full-width" appearance="fill">
+    <form class="form">
+      <mat-form-field class="input-mat-form" appearance="fill">
         <mat-label>CPF</mat-label>
         <input type="text" matInput (keyup)="cpfChange($event)" placeholder="Ex. 123.123.123-12">
       </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="input-mat-form" appearance="fill">
         <mat-label>Presidente</mat-label>
         <mat-select>
           <mat-option (onSelectionChange)="presidentChange($event)" *ngFor="let presidente of presidentes"
@@ -20,7 +20,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="input-mat-form" appearance="fill">
         <mat-label>Sexo</mat-label>
         <mat-select>
           <mat-option (onSelectionChange)="sexChange($event)" *ngFor="let sexo of sexos" [value]="sexo">
@@ -29,20 +29,28 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
+      <mat-form-field class="input-mat-form" appearance="fill">
         <mat-label>Idade</mat-label>
         <input type="text" matInput (keyup)="changeAge($event)" placeholder="Ex. 17">
       </mat-form-field>
 
-      <div style="display: flex; flex: 1; flex-direction: column">
-        <span style="padding: 10px">Vídeo</span>
-        <input type="file" (keyup)="changeAge($event)">
-      </div>
+      <mat-divider inset></mat-divider>
 
-      <div style="display: flex; flex: 1; flex-direction: column">
-        <span style="padding: 10px">Áudio</span>
-        <input type="file" (keyup)="changeAge($event)">
-      </div>
+      <section style="padding: 5px;">
+        <span>Opcional</span>
+        <div style="padding: 5px 10px;">
+          <div style="display: flex; flex: 1; flex-direction: column">
+            <span style="padding: 10px">Áudio</span>
+            <input type="file" (keyup)="changeAge($event)">
+          </div>
+
+          <div style="min-height: 10px;"></div>
+          <div style="display: flex; flex: 1; flex-direction: column">
+            <span style="padding: 10px">Vídeo</span>
+            <input type="file" (keyup)="changeAge($event)">
+          </div>
+        </div>
+      </section>
     </form>
 
 
@@ -50,11 +58,15 @@
 
   <mat-divider inset></mat-divider>
 
-  <mat-card-actions>
+  <mat-card-actions style="display: flex;justify-content: space-between; padding: 20px 20px 10px 20px">
     <button mat-button>Compartilhar</button>
+    <div style="display: flex; flex: 0.3; justify-content: space-between;">
+      <button mat-raised-button color="warn">Cancelar</button>
+      <button mat-raised-button color="primary">Votar</button>
+    </div>
   </mat-card-actions>
 
   <mat-card-footer>
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <mat-progress-bar mode="determinate" [value]="progressValue"></mat-progress-bar>
   </mat-card-footer>
 </mat-card>

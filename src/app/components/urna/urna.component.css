@@ -1,5 +1,8 @@
-.example-card {
-    max-width: 400px;
+.input-mat-form {
+    width: 100%;
 }
-  
-  
+
+.form {
+  padding: 20px;
+}
+
