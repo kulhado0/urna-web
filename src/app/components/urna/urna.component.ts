@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {ErrorStateMatcher} from '@angular/material/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {MatOptionSelectionChange} from "@angular/material/core";
 
 @Component({
   selector: 'app-urna',
@@ -8,16 +7,33 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
   styleUrls: ['./urna.component.css']
 })
 export class UrnaComponent implements OnInit {
-  cpf_input = 'asdasd';
+  cpf: string = '';
+  sexo: string = '';
+  presidente: string = '';
+  idade: string = ''
 
-  constructor() { }
+  presidentes = ['Luiz Inácio Lula da Silva', 'Jair Bolsonaro', 'Ciro Gomes', 'Marina Silva'];
+  sexos = ['Masculino', 'Feminino', 'Outro'];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  cpfChange(event: any, value: any) {
-    console.log(event)
-    console.log(value)
+  cpfChange(event: any) {
+    this.cpf = event.target.value
   }
 
+  presidentChange(event: MatOptionSelectionChange<string>) {
+    this.presidente = event.source.value
+  }
+
+  sexChange(event: MatOptionSelectionChange<any>) {
+    this.sexo = event.source.value
+  }
+
+  changeAge(event: any) {
+    this.idade = event.target.value
+  }
 }
