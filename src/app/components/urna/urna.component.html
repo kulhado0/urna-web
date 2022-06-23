@@ -41,13 +41,13 @@
         <div style="padding: 5px 10px;">
           <div style="display: flex; flex: 1; flex-direction: column">
             <span style="padding: 10px">Áudio</span>
-            <input type="file" (keyup)="changeAge($event)">
+            <input type="file" (change)="changeAudio($event)">
           </div>
 
           <div style="min-height: 10px;"></div>
           <div style="display: flex; flex: 1; flex-direction: column">
             <span style="padding: 10px">Vídeo</span>
-            <input type="file" (keyup)="changeAge($event)">
+            <input type="file" (change)="changeVideo($event)">
           </div>
         </div>
       </section>
@@ -61,8 +61,8 @@
   <mat-card-actions style="display: flex;justify-content: space-between; padding: 20px 20px 10px 20px">
     <button mat-button>Compartilhar</button>
     <div style="display: flex; flex: 0.3; justify-content: space-between;">
-      <button mat-raised-button color="warn">Cancelar</button>
-      <button mat-raised-button color="primary">Votar</button>
+      <button mat-raised-button color="warn" (click)="clear()">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="vote()">Votar</button>
     </div>
   </mat-card-actions>
 

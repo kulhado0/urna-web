@@ -16,6 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 
 import {MatInputModule} from '@angular/material/input';
 import {UrnaComponent} from './components/urna/urna.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {UrnaComponent} from './components/urna/urna.component';
     MatInputModule,
     FormsModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
