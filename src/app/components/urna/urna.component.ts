@@ -15,7 +15,7 @@ export class UrnaComponent implements OnInit {
   audio: any
   video: any
 
-  presidentes = ['Luiz Inácio Lula da Silva', 'Jair Bolsonaro', 'Ciro Gomes', 'Marina Silva'];
+  presidentes = ['Luiz Inácio Lula da Silva', 'Jair Bolsonaro', 'Ciro Gomes', 'Marina Silva', 'Branco', 'Nulo'];
   sexos = ['Masculino', 'Feminino', 'Outro'];
   progressValue: number = 0;
 
@@ -53,7 +53,7 @@ export class UrnaComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-        this.audio = reader.result
+      this.audio = reader.result
     };
   }
 
@@ -63,7 +63,7 @@ export class UrnaComponent implements OnInit {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = () => {
-        this.video = reader.result
+      this.video = reader.result
     };
   }
 
